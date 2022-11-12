@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+    font-family: 'breakingbad';
+    src: url('./static/fonts/HeartBreakingBad.otf')
+}
+
+@font-face{
+    font-family: 'heart';
+    src: url('./static/fonts/BonusHearts.ttf')
+}
