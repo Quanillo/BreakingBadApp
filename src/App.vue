@@ -8,10 +8,10 @@
             <CharListTitle />
             <Browser  @setSearch="setList"/>
             <div v-if="isLoading">
-                <Loading />
+                <Loading :searching="searching"/>
             </div>
             <div v-else>
-                <CharacterList :list="list" :favList="favList" :maxChar="maxChar" :isMax="setIsMaxChar" @addFav="addFav" @deleteFav="deleteFav" @showMaxChar="showMaxChar"/>
+                <CharacterList :list="list" :favList="favList" :maxChar="maxChar" :isMax="this.maxChar" @addFav="addFav" @deleteFav="deleteFav" @showMaxChar="showMaxChar"/>
             </div>
         </div>
         <div  v-if="favExist == true">
@@ -54,11 +54,13 @@ export default {
             favList: [],
             maxChar: null,
             isMax: false,
-            isLoading: false,   
+            isLoading: false, 
+            searching: '',  
         }
     },
     methods: {
         async setList(search) {
+            this.searching = search;
             try {
                 this.isLoading = true;
                 const response = await axios.get(`https://www.breakingbadapi.com/api/characters?name=${search}`);
