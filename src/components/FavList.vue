@@ -1,8 +1,8 @@
 <template>
     <div class="m-5 place-items-center">
         <ul>
-            <li v-for="(item, index) in setFavList" :key="index">
-                <CharMin :char="item" :favList="favList" :isFav="isFav"  @deleteFav="deleteFav"  @showMaxChar="showMaxChar"/>
+            <li v-for="(item, index) in this.favList" :key="index">
+                <CharMin :char="item" :favList="favList"  @deleteFav="deleteFav"  @showMaxChar="showMaxChar"/>
             </li>
         </ul>
     </div>
@@ -17,9 +17,6 @@ export default {
         favList: {
             type: Array,
         },
-        isFav: {
-            type: Boolean,
-        },
         maxChar: {
             type: Object,
         },
@@ -33,11 +30,6 @@ export default {
             this.$emit('showMaxChar', char);
         },
     },
-    computed: {
-        setFavList() {
-            return this.favList;
-        }
-    }
 }
 </script>
 

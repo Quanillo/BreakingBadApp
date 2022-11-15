@@ -10,16 +10,9 @@
                 <span class="text-lg font-semibold text-lime-200"> '{{ char.nickname }}'</span><br> 
                 <div class="place-content-center">                    
                     <span class="flex  justify-end"> 
-                        <div v-if="this.maxChar === this.char">
-                            <button @click="showMinChar"
-                            class="mr-3 text-5xl font-heart text-lime-200 hover:scale-125 border-solid border-black flex justify-end">-</button>
-                        </div>
-                        <div v-else>
-                            <button @click="showMaxChar" 
-                            class="mr-3 text-5xl font-heart text-lime-200 hover:scale-125 border-solid border-black flex justify-end">+</button>
-                        </div>   
-
-                    <FavButton :char="this.char" :favList="this.favList" @addFav="addFav" @deleteFav="deleteFav"/>  
+                        <button @click="showMaxChar" 
+                        class="mr-3 text-5xl font-heart text-lime-200 hover:scale-125 border-solid border-black flex justify-end">+</button>
+                        <FavButton :char="this.char" :favList="this.favList" @addFav="addFav" @deleteFav="deleteFav"/>  
                     </span>
                 </div>
             </div>
@@ -47,11 +40,6 @@ export default {
             type: Object,
         },
     },
-    data(){
-        return{
-            //isMax: false,
-        }
-    },
     emits:["addFav", "deleteFav", "showMaxChar"],
     methods: {
         addFav() {
@@ -62,20 +50,8 @@ export default {
         },
         showMaxChar(){
             this.$emit('showMaxChar', this.char);
-        },
-        showMinChar(){
-            this.$emit('showMaxChar', null);
-        }
-            
-        },
-    computed: {
-        isFav() {
-            if (this.favList.find(x => x.char_id == this.char.char_id))
-                return true;
-            else
-                return false;
-        },
-    }
+        },        
+    },
 }
 </script>
     

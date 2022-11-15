@@ -6,7 +6,7 @@
     <div class="md:flex  md:flex-row justify-center">
         <div class="mt-5">
             <CharListTitle />
-            <Browser  @setSearch ="setList"/>
+            <Browser  @setSearch="setList"/>
             <div v-if="isLoading">
                 <Loading />
             </div>
@@ -17,7 +17,7 @@
         <div  v-if="favExist == true">
             <div class="mt-5">
                 <FavListTitle />
-                <FavList :favList="favList" :maxChar="maxChar" :isMax="setIsMaxChar" @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
+                <FavList :favList="favList" :maxChar="maxChar" :isMax="this.maxChar" @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
             </div>
         </div>
     </div>
@@ -45,9 +45,8 @@ export default {
         Browser,
     },
     created() {
-        if (localStorage.getItem('favListData') != null) {
+        if (localStorage.getItem('favListData') != null) 
             this.favList = JSON.parse(localStorage.getItem('favListData'));
-        }
     },
     data() {
         return {
@@ -87,27 +86,14 @@ export default {
             localStorage.removeItem('favListData');
             localStorage.setItem('favListData', JSON.stringify(this.favList));
         },
-        setSearch (search) {
-            this.$emit("setSearch", search);
-        },
     },
     computed: {
         favExist(){
             return this.favList.length == 0 ? false : true;
         },
-        setIsMaxChar(){
-            return this.maxChar
-        }
     },
 }
 </script>
 
 <style scoped>
-.divClass{
-    display: flex;
-    flex-direction:row;
-    align-items: top;
-    justify-content:space-evenly;
-    background-color: #111410;
-}
 </style>

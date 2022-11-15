@@ -99,14 +99,6 @@ export default {
             }
         },
     },
-    computed: {
-        isFav() {
-            if (this.favList.find(x => x.char_id == this.char.char_id))
-                return true;
-            else
-                return false;
-        }
-    }
 }
 </script>
     
