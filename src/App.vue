@@ -1,7 +1,7 @@
 <template>
 <div class="bg-[#111410] h-full items-center">
     <div class="top-0 w-screen h-20 sm:h-40">
-        <img class="w-full h-full object-cover" src="@/assets/banner5.jpg" />
+        <img class="w-full h-full object-cover" src="@/assets/banner.jpg" />
     </div>
     <div class="md:flex  md:flex-row justify-center">
         <div class="mt-5">

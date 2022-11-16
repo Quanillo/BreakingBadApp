@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+htlm, body, #app{
+    width: 100%;
+    height: 100%;
+    background-color: #111410;
+}
+
 @font-face{
     font-family: 'breakingbad';
-    src: url('./static/fonts/HeartBreakingBad.otf')
+    src: url('@/assets/fonts/HeartBreakingBad.otf')
 }
 
 @font-face{
     font-family: 'heart';
-    src: url('./static/fonts/BonusHearts.ttf')
+    src: url('@/assets/fonts/BonusHearts.ttf')
 }
