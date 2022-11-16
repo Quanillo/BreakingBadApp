@@ -5,7 +5,7 @@
             <div v-if="maxChar == null">
                 <ul>
                     <li v-for="(item, index) in this.list" :key="index">
-                        <CharMin :char="item" :favList="favList" :maxChar="maxChar" @addFav="addFav" @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
+                        <CharMin :char="item" :favList="favList" @addFav="addFav" @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
                     </li>
                  </ul>   
             </div>

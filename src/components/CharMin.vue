@@ -36,9 +36,6 @@ export default {
         favList: {
             type: Array,
         },
-        maxChar: {
-            type: Object,
-        },
     },
     emits:["addFav", "deleteFav", "showMaxChar"],
     methods: {

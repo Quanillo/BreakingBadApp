@@ -25,10 +25,10 @@
     emits:["addFav", "deleteFav"],
     methods: {
         addFav() {
-            this.$emit('addFav', this.char);
+            this.$emit('addFav');
         },
-        deleteFav(char) {
-            this.$emit('deleteFav', this.char);
+        deleteFav() {
+            this.$emit('deleteFav');
         },
     },
     computed:{

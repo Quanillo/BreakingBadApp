@@ -17,9 +17,6 @@ export default {
         favList: {
             type: Array,
         },
-        maxChar: {
-            type: Object,
-        },
     },
     emits:["showMaxChar", "deleteFav"],
     methods: {

@@ -17,7 +17,7 @@
         <div  v-if="favExist == true">
             <div class="mt-5">
                 <FavListTitle />
-                <FavList :favList="favList" :maxChar="maxChar" :isMax="this.maxChar" @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
+                <FavList :favList="favList"  @deleteFav="deleteFav" @showMaxChar="showMaxChar" />
             </div>
         </div>
     </div>
@@ -53,7 +53,6 @@ export default {
             list: [],
             favList: [],
             maxChar: null,
-            isMax: false,
             isLoading: false, 
             searching: '',  
         }
@@ -63,7 +62,7 @@ export default {
             this.searching = search;
             try {
                 this.isLoading = true;
-                const response = await axios.get(`https://www.breakingbadapi.com/api/characters?name=${search}`);
+                const response = await axios.get(`https://www.breakingbadapi.com/api/characters?name=${search.toLowerCase()}`);
                 this.list = (response.data);
                 this.isLoading = false;
             } catch (error) {
